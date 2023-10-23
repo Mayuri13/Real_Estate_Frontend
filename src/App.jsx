@@ -3,6 +3,8 @@ import Header from "./Components/Header/Header";
 import Hero from "./Components/Hero/Hero";
 import { Residencies } from "./Components/Residencies/Residencies";
 import { Value } from "./Components/Value/Value";
+import { GetStarted } from "./Components/GetStarted/GetStarted";
+import { Footer } from "./Components/Footer/footer";
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
       <Residencies/>
       <Value/>
       <Contact/>
+      <GetStarted/>
+      <Footer/>
     </div>
   );
 }
