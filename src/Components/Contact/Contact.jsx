@@ -45,7 +45,7 @@ export const Contact = () => {
                 {/* Below is the div for call icon and the number */}
                 <div className="flexStart">
                   <div className="flexcenter icon">
-                    <MdCall size={25} />
+                    <BsFillChatDotsFill size={25} />
                   </div>
                   <div className="flexColStart detail">
                     <span className="primaryText">Chat</span>
@@ -68,7 +68,7 @@ export const Contact = () => {
                 {/* Below is the div for call icon and the number */}
                 <div className="flexStart">
                   <div className="flexcenter icon">
-                    <MdCall size={25} />
+                    <BsFillChatDotsFill size={25} />
                   </div>
                   <div className="flexColStart detail">
                     <span className="primaryText">Video Call</span>
@@ -87,7 +87,7 @@ export const Contact = () => {
                 {/* Below is the div for call icon and the number */}
                 <div className="flexStart">
                   <div className="flexcenter icon">
-                    <MdCall size={25} />
+                    <HiChatBubbleBottomCenter size={25} />
                   </div>
                   <div className="flexColStart detail">
                     <span className="primaryText">Message</span>
