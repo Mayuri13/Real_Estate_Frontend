@@ -3,19 +3,43 @@ import "./Contact.css";
 import { MdCall } from "react-icons/md";
 import {BsFillChatDotsFill} from 'react-icons/bs'
 import {HiChatBubbleBottomCenter} from 'react-icons/hi2'
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 export const Contact = () => {
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      // Start the animation when the component is in view
+      controls.start({
+        x: 0,
+        opacity: 1,
+      });
+    }
+  }, [controls, inView]);
+
   return (
     <section className="c-wrapper">
       <div className="paddings innerWidth flexCenter c-container">
         {/*Left Side */}
         <div className="flexColStart c-left">
-          <span className="orangeText">Our Contacts</span>
-          <span className="primaryText">Easy to Contact us</span>
-          <span className="secondaryText">
-            We always ready to help by providijng the best services for you. We
-            beleive a good blace to live can make your life better
-          </span>
+        <motion.div initial={{ x: "-5rem", opacity: 0 }}
+          animate={controls}
+          transition={{
+            duration: 3,
+            type: "spring",
+          }}
+          ref={ref} className="flexColStart">
+            <span className="orangeText">Our Contacts</span>
+            <span className="primaryText">Easy to Contact us</span>
+            <span className="secondaryText">
+              We always ready to help by providijng the best services for you. We
+              beleive a good blace to live can make your life better
+            </span>
+          </motion.div>
           <div className="flexColStart contactModes">
             {/*First row */}
 

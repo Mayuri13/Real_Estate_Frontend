@@ -5,16 +5,15 @@ import { Residencies } from "./Components/Residencies/Residencies";
 import { Value } from "./Components/Value/Value";
 import { GetStarted } from "./Components/GetStarted/GetStarted";
 import { Footer } from "./Components/Footer/footer";
-
+import './App.css'
 
 function App() {
   return (
     <div className="App">
       <div>
-        <div className="white-gradient">
+        <div className="white-gradient"/>
           <Header />
           <Hero />
-        </div>
       </div>
       <Residencies/>
       <Value/>

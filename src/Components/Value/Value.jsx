@@ -1,4 +1,8 @@
 import React from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+
 import {
   Accordion,
   AccordionItem,
@@ -14,6 +18,19 @@ import data from "../../utils/accordion";
 import { useState } from "react";
 
 export const Value = () => {
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      // Start the animation when the component is in view
+      controls.start({
+        x: 0,
+        opacity: 1,
+      });
+    }
+  }, [controls, inView]);
+
   return (
     <section className="v-wrapper">
       <div className="paddings innerWidth flexCenter v-container">
@@ -25,6 +42,14 @@ export const Value = () => {
         </div>
         {/*Right Container */}
         <div className="flexColStart v-right">
+          <motion.div initial={{ x: "5rem", opacity: 0 }}
+          animate={controls}
+          transition={{
+            duration: 3,
+            type: "spring",
+          }}
+          ref={ref}
+          className="flexColStart">
           <span className="orangeText">Our Value</span>
           <span className="primaryText">Value we give to you</span>
           <span className="secondaryText">
@@ -33,7 +58,7 @@ export const Value = () => {
             <br />
             We believe a good place to live can make your life better.
           </span>
-
+          </motion.div>
           <Accordion
             className="accordion"
             allowMultipleExpanded={false}
