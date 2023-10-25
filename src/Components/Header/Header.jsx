@@ -1,20 +1,20 @@
 import React from 'react'
 import './Header.css'
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
     <div className="h-wrapper">
         <div className="flexCenter paddings innerWidth h-container">
+            <Link to="/">
             <img src="./logo.png" alt="logo" width={100} />
-
+            </Link>
 
             <div className="flexCenter h-menu">
-                <a href="">Residencies</a>
-                <a href="">Our Values</a>
-                <a href="">Contact Us</a>
-                <a href="">Get Started</a>
+                <NavLink to="/properties">Properties</NavLink>
+                <a href='mailto:munu5031.goswami@gmail.com'>Contact</a>
                 <button className="button">
-                    <a href="">Contact</a>
+                  <NavLink to="/login">Login</NavLink>
                 </button>
 
             </div>
@@ -23,4 +23,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Header;
