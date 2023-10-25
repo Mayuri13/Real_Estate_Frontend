@@ -1,26 +1,24 @@
-import { Contact } from "./Components/Contact/Contact";
-import Header from "./Components/Header/Header";
-import Hero from "./Components/Hero/Hero";
-import { Residencies } from "./Components/Residencies/Residencies";
-import { Value } from "./Components/Value/Value";
-import { GetStarted } from "./Components/GetStarted/GetStarted";
-import { Footer } from "./Components/Footer/footer";
 import './App.css'
+import { Website } from './Pages/Website';
+import Layout from './Components/Layout/Layout'
+import Properties from './Pages/Properties/Properties';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 function App() {
+  const queryClient = new QueryClient();
+
   return (
-    <div className="App">
-      <div>
-        <div className="white-gradient"/>
-          <Header />
-          <Hero />
-      </div>
-      <Residencies/>
-      <Value/>
-      <Contact/>
-      <GetStarted/>
-      <Footer/>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout/>}>
+            <Route path='/' element={<Website/>}/>
+            <Route path='/properties' element={<Properties/>}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 

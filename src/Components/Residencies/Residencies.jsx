@@ -7,6 +7,7 @@ import { sliderSettings } from "../../utils/common";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import {PropertyCards} from "../PropertyCards/PropertyCards";
 
 export const Residencies = () => {
   const controls = useAnimation();
@@ -43,15 +44,7 @@ export const Residencies = () => {
           {/*Mapping the slider.json info of popular residencies into cards in the carousel  */}
           {data.map((card, i) => (
             <SwiperSlide key={i}>
-              <div className="flexColStart r-card">
-                <img src={card.image} alt="home" />
-                <span className="secondaryText r-price">
-                  <span className="orangeText">$</span>
-                  <span>{card.price}</span>
-                </span>
-                <span className="primaryText">{card.name}</span>
-                <span className="secondaryText">{card.detail}</span>
-              </div>
+              <PropertyCards card={card}/>
             </SwiperSlide>
           ))}
         </Swiper>
